@@ -540,13 +540,6 @@ function render() {
 // 初期状態でホーム画面を表示
 showScreen("home");
 
-//一時的に置いてる。初期化
-function a(){
-    localStorage.clear()
-    render()
-} 
-document.getElementById("a").addEventListener("click",a)
-
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
         navigator.serviceWorker.register("/rewardly/serviceworker.js").then(reg => {
