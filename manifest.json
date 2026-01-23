@@ -1,9 +1,9 @@
 {
     "name":"rewardly",
     "short_name":"Reward",
-    "start_url":"/index.html",
+    "start_url":".",
     "display":"standalone",
-    "background-color":"#ffffff",
+    "background_color":"#ffffff",
     "theme_color": "#000000",
      "icons": [
         {
