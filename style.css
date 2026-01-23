@@ -8,10 +8,9 @@ html{
     box-sizing: border-box;
     --ribbon-size:11vh;
     user-select: none;
-}
-
-input{
-    user-select: text;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 input,
@@ -219,7 +218,7 @@ body {
 .addBtn {
     position: fixed;
     display: flex;
-    bottom: 50px;
+    bottom: 70px;
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
