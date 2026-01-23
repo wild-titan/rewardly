@@ -1,10 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
 html{
     touch-action: manipulation;
 }
 
 *{
+    font-family: "Noto Sans JP", sans-serif;
     box-sizing: border-box;
     --ribbon-size:11vh;
+    user-select: none;
+}
+
+input{
+    user-select: text;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px;
 }
 
 .screen {
@@ -205,7 +218,8 @@ body {
 
 .addBtn {
     position: fixed;
-    bottom: 20px;
+    display: flex;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
@@ -213,6 +227,10 @@ body {
     border-radius: 50%;
     color: #ffffff;
     background-color:var(--section-color);
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding:0px;
     border: none;
     font-size: 100px;
     font-weight: bold;
@@ -245,7 +263,7 @@ li{
     border:#cdcdcd 1px solid;
     align-items: center;
     overflow: hidden;
-    border-radius:25px;
+    border-radius:35px;
 }
 
 .earnList li::before{
