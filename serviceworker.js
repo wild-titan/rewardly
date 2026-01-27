@@ -9,9 +9,17 @@ const assets = [
 ];
 
 self.addEventListener("install", e => {
-  self.skipWaiting();
   e.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(assets))
+    caches.open(CACHE_NAME).then(async cache => {
+      for (const url of assets) {
+        try {
+          console.log("caching:", url);
+          await cache.add(url);
+        } catch (err) {
+          console.error("❌ cache failed:", url, err);
+        }
+      }
+    })
   );
 });
 
