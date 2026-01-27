@@ -1,25 +1,32 @@
-const VERSION ="v1"
-
+const VERSION = "v2";
 const CACHE_NAME = `period-tracker-${VERSION}`;
 
 const assets = [
-    "/",
-    "/rewardly/index.html",
-    "/rewardly/style.css",
-    "/rewardly/script.js",
-    "/rewardly/manifest.json",
-    "/calendar-App/icons/icon-192.png",
-    "/calendar-App/icons/icon-512.png"
-]
+  "/",
+  "/rewardly/index.html",
+  "/rewardly/style.css",
+  "/rewardly/script.js"
+];
 
 self.addEventListener("install", e => {
+  self.skipWaiting();
   e.waitUntil(
-    caches.open(cacheName).then(cache => cache.addAll(assets))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(assets))
+  );
+});
+
+self.addEventListener("activate", e => {
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys
+          .filter(k => k !== CACHE_NAME)
+          .map(k => caches.delete(k))
+      )
+    )
   );
 });
 
 self.addEventListener("fetch", e => {
-  e.respondWith(
-    caches.match(e.request).then(res => res || fetch(e.request))
-  );
+  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
 });
