@@ -2,7 +2,7 @@ const VERSION = "v2";
 const CACHE_NAME = `period-tracker-${VERSION}`;
 
 const assets = [
-  "/",
+  "/rewardly/",
   "/rewardly/index.html",
   "/rewardly/style.css",
   "/rewardly/script.js"
