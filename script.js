@@ -65,6 +65,7 @@ function showScreen(target) {
     // targetはearnとかuse
     screens.forEach(s => s.classList.add("hidden"));
     if(target == "home") {
+        ribbon.dataset.screen = "home"
         ribbon.classList.add("hidden")
     }else{
         ribbon.classList.remove("hidden")
