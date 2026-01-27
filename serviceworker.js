@@ -16,7 +16,7 @@ self.addEventListener("install", e => {
           console.log("caching:", url);
           await cache.add(url);
         } catch (err) {
-          console.error("❌ cache failed:", url, err);
+          console.error("cache failed:", url, err);
         }
       }
     })
